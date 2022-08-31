@@ -143,10 +143,6 @@ if __name__ == '__main__':
 
         G = nx.relabel_nodes(G, new_names['nodes'], copy=False)
 
-        # subax1 = plt.subplot(121)
-        # nx.draw(G, with_labels=True, font_weight='bold')
-        # plt.show()
-
         orig = user
 
         to = input('Destino del mensaje\n')
