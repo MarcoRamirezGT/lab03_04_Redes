@@ -1,0 +1,1 @@
+{"nodes":{"A": "nodojcm1@alumchat.fun", "B": "nodojcm2@alumchat.fun", "C": "nodojcm3@alumchat.fun", "D": "nodojcm4@alumchat.fun", "E": "nodojcm5@alumchat.fun", "F": "nodojcm6@alumchat.fun" }}
