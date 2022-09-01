@@ -54,7 +54,7 @@ class Server(slixmpp.ClientXMPP):
 
             message = message.split('|')
 
-            f = open("topologia.txt", "r")
+            f = open("top2.txt", "r")
             data = json.load(f)
 
             G = nx.Graph()
@@ -63,11 +63,12 @@ class Server(slixmpp.ClientXMPP):
                 for i in value:
 
                     G.add_edge(key, i)
+            # Cambiar nombres de los nodos
 
-            names = open("names.txt", 'r')
-            new_names = json.load(names)
+            # names = open("names.txt", 'r')
+            # new_names = json.load(names)
 
-            G = nx.relabel_nodes(G, new_names['nodes'], copy=False)
+            # G = nx.relabel_nodes(G, new_names['nodes'], copy=False)
             origen = message[0]
             vecino = message[1]
             dest = message[2]
@@ -127,7 +128,7 @@ if __name__ == '__main__':
 
         xmpp.process(timeout=20)
 
-        f = open("topologia.txt", "r")
+        f = open("top2.txt", "r")
         data = json.load(f)
 
         G = nx.Graph()
@@ -137,10 +138,11 @@ if __name__ == '__main__':
 
                 G.add_edge(key, i)
 
-        names = open("names.txt", 'r')
-        new_names = json.load(names)
+        # Cambiar nombre de los nodos
+        # names = open("names.txt", 'r')
+        # new_names = json.load(names)
 
-        G = nx.relabel_nodes(G, new_names['nodes'], copy=False)
+        # G = nx.relabel_nodes(G, new_names['nodes'], copy=False)
 
         orig = user
 
