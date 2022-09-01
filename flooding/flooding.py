@@ -93,7 +93,7 @@ if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG,
                         format='%(levelname)-8s %(message)s')
     user = input('User:\n')
-    password = '123456'  # input('Password:\n')
+    password = input('Password:\n')
 
     xmpp = Server(user, password)
 
