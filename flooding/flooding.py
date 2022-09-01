@@ -1,4 +1,3 @@
-
 # Required Libraries
 from http import server
 from operator import ne
@@ -17,8 +16,9 @@ import json
 import networkx as nx
 import asyncio
 import logging
-
-
+from os.path import exists
+import os.path
+from pathlib import Path
 import slixmpp
 
 # Global Variables for the EchoBot class (Error Handling Python version)
@@ -72,7 +72,9 @@ class Server(slixmpp.ClientXMPP):
             vecino = message[1]
             dest = message[2]
             mensaje = message[3]
-            tree = []
+            td = 'dataset_%s.txt' % self.jid
+            dataset = open(td, 'w+')
+
             if dest == self.jid:
                 print('El mensaje es para mi')
                 # msg.reply("El mensaje es para mi\n%(body)s" % msg).send()
@@ -83,9 +85,16 @@ class Server(slixmpp.ClientXMPP):
 
                 for i in range(len(neigh)):
                     res = vecino+'|'+neigh[i]+'|'+dest+'|'+mensaje
+                    if neigh[i] in dataset.read():
+                        print('El mensaje ya existe')
+                    else:
 
-                    self.send_message(
-                        mto=neigh[i], mbody=res, mtype='chat')
+                        self.send_message(
+                            mto=neigh[i], mbody=res, mtype='chat')
+
+                        dataset.write(str(neigh[i]))
+                        dataset.write('\n')
+                        dataset.close()
 
 
 if __name__ == '__main__':
@@ -96,6 +105,13 @@ if __name__ == '__main__':
     password = input('Password:\n')
 
     xmpp = Server(user, password)
+    # td = 'dataset_%s.txt' % user
+    # try:
+    #     open(td, "r")
+    #     print('archivo existe')
+
+    # except IOError:
+    #     print("Error: File does not appear to exist.")
 
     xmpp.register_plugin('xep_0030')  # Service Discovery
     xmpp.register_plugin('xep_0004')  # Data Forms
