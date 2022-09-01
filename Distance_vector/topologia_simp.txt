@@ -1,0 +1,1 @@
+{"type":"topo", "config":{"jjhh@alumchat.fun": ["jjhh1@alumchat.fun", "jjhh2@alumchat.fun"], "jjhh1@alumchat.fun": ["jjhh@alumchat.fun", "jjhh3@alumchat.fun"], "jjhh2@alumchat.fun": ["jjhh@alumchat.fun", "jjhh3@alumchat.fun"], "jjhh3@alumchat.fun": ["jjhh1@alumchat.fun", "jjhh2@alumchat.fun"]} }
