@@ -24,7 +24,7 @@ import slixmpp
 # Global Variables for the EchoBot class (Error Handling Python version)
 asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
-
+PATH_TO_TOPOLOGY = 'top3.txt'
 class Server(slixmpp.ClientXMPP):
     # Class Constructor
     def __init__(self, jid, password):
@@ -54,7 +54,7 @@ class Server(slixmpp.ClientXMPP):
 
             message = message.split('|')
 
-            f = open("top2.txt", "r")
+            f = open(PATH_TO_TOPOLOGY, "r")
             data = json.load(f)
 
             G = nx.Graph()
@@ -128,7 +128,7 @@ if __name__ == '__main__':
 
         xmpp.process(timeout=20)
 
-        f = open("top2.txt", "r")
+        f = open(PATH_TO_TOPOLOGY, "r")
         data = json.load(f)
 
         G = nx.Graph()
