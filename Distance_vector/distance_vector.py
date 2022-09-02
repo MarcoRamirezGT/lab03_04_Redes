@@ -305,7 +305,7 @@ if __name__ == '__main__':
     jid = input('Ingrese su JID: ')
     password = getpass('Ingrese su contraseña: ')
 
-    path = 'topologia_simp.txt'
+    path = input('Ingrese el path del archivo de configuración: ')
 
     f = open(path, "r")
     data = json.load(f)

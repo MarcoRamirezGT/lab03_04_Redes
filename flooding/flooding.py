@@ -53,8 +53,8 @@ class Server(slixmpp.ClientXMPP):
             message = ((msg["body"]))
 
             message = message.split('|')
-
-            f = open("top2.txt", "r")
+            input_usuario2 = input("Ingrese el path de la topología: ")
+            f = open(input_usuario2, "r")
             data = json.load(f)
 
             G = nx.Graph()
@@ -128,7 +128,8 @@ if __name__ == '__main__':
 
         xmpp.process(timeout=20)
 
-        f = open("top2.txt", "r")
+        path_input = input('Ingrese el path de la topología\n')
+        f = open(path_input, "r")
         data = json.load(f)
 
         G = nx.Graph()
