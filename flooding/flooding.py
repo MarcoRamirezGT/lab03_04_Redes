@@ -24,7 +24,9 @@ import slixmpp
 # Global Variables for the EchoBot class (Error Handling Python version)
 asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
-PATH_TO_TOPOLOGY = 'top3.txt'
+PATH_TO_TOPOLOGY = 'topologia.txt'
+
+
 class Server(slixmpp.ClientXMPP):
     # Class Constructor
     def __init__(self, jid, password):
